@@ -1,0 +1,444 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  body {
+    @apply font-sans antialiased;
+  }
+}
+
+@layer components {
+  /* Enhanced Button Styles */
+  .btn-primary {
+    @apply relative overflow-hidden bg-gradient-to-r from-primary to-primary-light text-white font-semibold py-2.5 px-6 rounded-xl shadow-md shadow-primary/30 hover:shadow-lg hover:shadow-primary/40 hover:-translate-y-0.5 active:translate-y-0 transition-all duration-200;
+  }
+  
+  .btn-green {
+    @apply relative overflow-hidden bg-gradient-to-r from-green-500 to-green-600 text-white font-semibold py-2.5 px-6 rounded-xl shadow-md shadow-green-500/30 hover:shadow-lg hover:shadow-green-500/40 hover:-translate-y-0.5 active:translate-y-0 transition-all duration-200;
+  }
+  
+  .btn-secondary {
+    @apply bg-white text-text-primary font-semibold py-2.5 px-6 rounded-xl border-2 border-border hover:border-primary hover:text-primary hover:shadow-md hover:-translate-y-0.5 active:translate-y-0 transition-all duration-200;
+  }
+  
+  /* Enhanced Input Styles */
+  .input-field {
+    @apply w-full px-4 py-3 rounded-xl border-2 border-border bg-white text-text-primary placeholder:text-text-secondary/60 focus:outline-none focus:border-primary focus:ring-4 focus:ring-primary/10 transition-all duration-200;
+  }
+
+  .input-field.no-spinner {
+    -moz-appearance: textfield;
+  }
+
+  .input-field.no-spinner::-webkit-outer-spin-button,
+  .input-field.no-spinner::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+  }
+  
+  /* Enhanced Card Styles */
+  .card {
+    @apply bg-white rounded-xl border border-border-light shadow-sm shadow-gray-100 p-6 hover:shadow-md hover:shadow-gray-200/50 transition-all duration-300;
+  }
+  
+  .card-interactive {
+    @apply card cursor-pointer hover:-translate-y-1 hover:border-primary/30;
+  }
+  
+  .card-gradient {
+    @apply card bg-gradient-to-br from-white to-gray-50/50;
+  }
+  
+  /* Status Badges */
+  .badge {
+    @apply inline-flex items-center px-3 py-1 rounded-full text-xs font-semibold;
+  }
+  
+  .badge-success {
+    @apply badge bg-green-100 text-green-700 border border-green-200;
+  }
+  
+  .badge-warning {
+    @apply badge bg-yellow-100 text-yellow-700 border border-yellow-200;
+  }
+  
+  .badge-error {
+    @apply badge bg-red-100 text-red-700 border border-red-200;
+  }
+  
+  .badge-info {
+    @apply badge bg-blue-100 text-blue-700 border border-blue-200;
+  }
+}
+
+/* Toast Animation */
+@keyframes slide-in {
+  from {
+    transform: translateX(100%);
+    opacity: 0;
+  }
+  to {
+    transform: translateX(0);
+    opacity: 1;
+  }
+}
+
+.animate-slide-in {
+  animation: slide-in 0.3s ease-out;
+}
+
+/* Stagger Animation for Lists */
+@keyframes fade-in-up {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.animate-fade-in-up {
+  animation: fade-in-up 0.4s ease-out forwards;
+}
+
+.stagger-1 { animation-delay: 0.05s; }
+.stagger-2 { animation-delay: 0.1s; }
+.stagger-3 { animation-delay: 0.15s; }
+.stagger-4 { animation-delay: 0.2s; }
+.stagger-5 { animation-delay: 0.25s; }
+.stagger-6 { animation-delay: 0.3s; }
+
+/* Pulse Animation for Loading */
+@keyframes shimmer {
+  0% {
+    background-position: -200% 0;
+  }
+  100% {
+    background-position: 200% 0;
+  }
+}
+
+.animate-shimmer {
+  background: linear-gradient(90deg, #f0f0f0 25%, #e0e0e0 50%, #f0f0f0 75%);
+  background-size: 200% 100%;
+  animation: shimmer 1.5s infinite;
+}
+
+/* Page Transition */
+@keyframes page-enter {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.page-transition {
+  animation: page-enter 0.3s ease-out;
+}
+
+/* Hover Effects */
+.hover-lift {
+  @apply transition-transform duration-200 hover:-translate-y-1;
+}
+
+.hover-scale {
+  @apply transition-transform duration-200 hover:scale-105;
+}
+
+.hover-glow {
+  @apply transition-shadow duration-300 hover:shadow-lg hover:shadow-primary/20;
+}
+
+/* Focus Styles */
+.focus-ring {
+  @apply focus:outline-none focus:ring-2 focus:ring-primary focus:ring-offset-2;
+}
+
+/* Table Row Hover */
+.table-row-hover {
+  @apply transition-colors duration-150 hover:bg-primary/5;
+}
+
+/* Sidebar Item Active */
+.sidebar-active {
+  @apply bg-gradient-to-r from-primary to-primary-light text-white shadow-md;
+}
+
+/* Card Shadow Variants */
+.shadow-soft {
+  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05), 0 2px 4px -1px rgba(0, 0, 0, 0.03);
+}
+
+.shadow-medium {
+  box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.08), 0 4px 6px -2px rgba(0, 0, 0, 0.04);
+}
+
+.shadow-strong {
+  box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+}
+
+/* Gradient Backgrounds */
+.gradient-primary {
+  background: linear-gradient(135deg, #2F7FFB 0%, #4A90E2 100%);
+}
+
+.gradient-success {
+  background: linear-gradient(135deg, #10B981 0%, #34D399 100%);
+}
+
+.gradient-warning {
+  background: linear-gradient(135deg, #F59E0B 0%, #FBBF24 100%);
+}
+
+.gradient-error {
+  background: linear-gradient(135deg, #EF4444 0%, #F87171 100%);
+}
+
+/* Custom Date Input Styles */
+.date-input-wrapper {
+  @apply relative flex items-center;
+}
+
+.date-input-wrapper input[type="date"] {
+  @apply w-full px-4 py-3 pr-12 rounded-xl border-2 border-border bg-white text-text-primary;
+  @apply focus:outline-none focus:border-primary focus:ring-4 focus:ring-primary/10;
+  @apply transition-all duration-200 cursor-pointer;
+  appearance: none;
+  -webkit-appearance: none;
+}
+
+/* Custom calendar icon */
+.date-input-wrapper::after {
+  content: '';
+  @apply absolute right-4 w-5 h-5 pointer-events-none;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' fill='none' viewBox='0 0 24 24' stroke='%232F7FFB' stroke-width='2'%3E%3Cpath stroke-linecap='round' stroke-linejoin='round' d='M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z'/%3E%3C/svg%3E");
+  background-size: contain;
+  background-repeat: no-repeat;
+}
+
+/* Hide default calendar icon in Chrome/Safari/Edge */
+.date-input-wrapper input[type="date"]::-webkit-calendar-picker-indicator {
+  @apply absolute right-0 w-full h-full opacity-0 cursor-pointer;
+}
+
+/* Hide default calendar icon in Firefox */
+.date-input-wrapper input[type="date"]::-moz-calendar-picker-indicator {
+  @apply opacity-0;
+}
+
+/* Date range inputs */
+.date-range-wrapper {
+  @apply flex items-center gap-3;
+}
+
+.date-range-wrapper .date-input-wrapper {
+  @apply flex-1;
+}
+
+.date-range-separator {
+  @apply text-text-secondary font-medium;
+}
+
+/* Date input in filter panel */
+.filter-date-input {
+  @apply w-full px-3 py-2 rounded-lg border-2 border-border bg-white text-text-primary text-sm;
+  @apply focus:outline-none focus:border-primary focus:ring-2 focus:ring-primary/10;
+  @apply transition-all duration-200 cursor-pointer;
+  appearance: none;
+  -webkit-appearance: none;
+}
+
+/* Calendar popup styling (limited browser support) */
+input[type="date"]::-webkit-datetime-edit {
+  @apply text-text-primary;
+}
+
+input[type="date"]::-webkit-datetime-edit-fields-wrapper {
+  @apply px-1;
+}
+
+input[type="date"]::-webkit-datetime-edit-text {
+  @apply text-text-secondary px-1;
+}
+
+input[type="date"]::-webkit-datetime-edit-month-field,
+input[type="date"]::-webkit-datetime-edit-day-field,
+input[type="date"]::-webkit-datetime-edit-year-field {
+  @apply text-text-primary;
+}
+
+/* Hover effect on date input */
+.date-input-wrapper:hover input[type="date"] {
+  @apply border-primary/50;
+}
+
+/* Disabled state */
+.date-input-wrapper input[type="date"]:disabled {
+  @apply bg-gray-100 text-text-secondary cursor-not-allowed border-border;
+}
+
+/* Placeholder style */
+.date-input-wrapper input[type="date"]:placeholder-shown {
+  @apply text-text-secondary/60;
+}
+
+/* ============================================
+   Responsive & Touch-Friendly Styles
+   ============================================ */
+
+/* Touch Target - Minimum 44px for better mobile tap */
+.touch-target {
+  min-height: 44px;
+  min-width: 44px;
+}
+
+/* Responsive Container */
+.responsive-container {
+  @apply w-full max-w-7xl mx-auto px-4 sm:px-6 lg:px-8;
+}
+
+/* Mobile-first spacing */
+@media (max-width: 640px) {
+  .card {
+    @apply p-4;
+  }
+  
+  .input-field {
+    @apply py-3 px-3 text-base;
+  }
+  
+  .btn-primary,
+  .btn-secondary {
+    @apply py-3 px-4 text-base w-full;
+  }
+  
+  h1 {
+    @apply text-2xl;
+  }
+  
+  h2 {
+    @apply text-xl;
+  }
+}
+
+/* Tablet spacing */
+@media (min-width: 641px) and (max-width: 1024px) {
+  .card {
+    @apply p-5;
+  }
+}
+
+/* Desktop spacing */
+@media (min-width: 1025px) {
+  .card {
+    @apply p-6;
+  }
+}
+
+/* Prevent horizontal scroll on mobile */
+body {
+  @apply overflow-x-hidden;
+}
+
+/* Responsive grid helpers */
+.grid-responsive-1 {
+  @apply grid-cols-1;
+}
+
+@media (min-width: 640px) {
+  .grid-responsive-2 {
+    @apply grid-cols-2;
+  }
+}
+
+@media (min-width: 1024px) {
+  .grid-responsive-3 {
+    @apply grid-cols-3;
+  }
+}
+
+@media (min-width: 1280px) {
+  .grid-responsive-4 {
+    @apply grid-cols-4;
+  }
+}
+
+/* Smooth scrolling for mobile */
+@media (hover: none) {
+  * {
+    -webkit-tap-highlight-color: transparent;
+  }
+  
+  button,
+  a,
+  input,
+  select {
+    -webkit-tap-highlight-color: rgba(47, 127, 251, 0.2);
+  }
+}
+
+/* Hide scrollbar on mobile but allow scrolling */
+.hide-scrollbar {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+
+.hide-scrollbar::-webkit-scrollbar {
+  display: none;
+}
+
+/* Responsive text truncation */
+.truncate-responsive {
+  @apply truncate;
+}
+
+@media (max-width: 640px) {
+  .truncate-responsive {
+    @apply max-w-[150px];
+  }
+}
+
+/* Mobile-friendly form labels */
+@media (max-width: 640px) {
+  label {
+    @apply text-sm;
+  }
+}
+
+/* Responsive padding for main content */
+.main-content {
+  @apply p-4 sm:p-6 lg:p-8;
+}
+
+/* Responsive Modal */
+@media (max-width: 640px) {
+  .modal-content {
+    @apply mx-2 max-h-[90vh] overflow-y-auto;
+  }
+}
+
+/* Smooth scrolling for all elements */
+* {
+  -webkit-overflow-scrolling: touch;
+}
+
+/* Ensure buttons are easily tappable */
+@media (hover: none) and (pointer: coarse) {
+  button,
+  .btn-primary,
+  .btn-secondary,
+  .btn-green,
+  a[role="button"] {
+    @apply min-h-[44px] min-w-[44px];
+  }
+}
+
+
+
